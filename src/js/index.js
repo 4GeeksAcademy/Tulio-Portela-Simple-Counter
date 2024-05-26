@@ -1,35 +1,35 @@
-//import react into the bundle
+// Importar React en el paquete
 import React from "react";
 import ReactDOM from "react-dom";
 
-// include your styles into the webpack bundle
+// Incluir tus estilos en el paquete de webpack
 import "../styles/index.css";
 
-function SimpleCounter(props) {
+function ContadorSimple(props) {
     return (
-        <div className="bigCounter">
-            <div className="secondsFive"><i className="far fa-clock"></i></div>
-            <div className="secondsFour">{props.Four}</div>
-            <div className="secondsThree">{props.Three}</div>
-            <div className="secondsTwo">{props.Two}</div>
-            <div className="secondsOne">{props.One}</div>
+        <div className="contadorGrande">
+            <div className="segundosCinco"><i className="far fa-clock"></i></div>
+            <div className="segundosCuatro">{props.cuatro}</div>
+            <div className="segundosTres">{props.tres}</div>
+            <div className="segundosDos">{props.dos}</div>
+            <div className="segundosUno">{props.uno}</div>
         </div>
     );
 }
 
-let counter = 0;
+let contador = 0;
 setInterval(function(){
-    const four = Math.floor(counter / 1000) % 10;
-    const three = Math.floor(counter / 100) % 10;
-    const two = Math.floor(counter / 10) % 10;
-    const one = counter % 10;
-    console.log(four, three, two, one);
+    const cuatro = Math.floor(contador / 1000) % 10;
+    const tres = Math.floor(contador / 100) % 10;
+    const dos = Math.floor(contador / 10) % 10;
+    const uno = contador % 10;
+    console.log(cuatro, tres, dos, uno);
 
-    //render your react application
+    // Renderizar tu aplicación de React
     ReactDOM.render(
-        <SimpleCounter Four={four} Three={three} Two={two} One={one} />,
+        <ContadorSimple cuatro={cuatro} tres={tres} dos={dos} uno={uno} />,
         document.querySelector("#app")
     );
 
-    counter++;
+    contador++;
 }, 1000);
